@@ -74,10 +74,27 @@ export class EmbedVideoService {
     if (options && options.hasOwnProperty('query')) {
       queryString = '?' + this.serializeQuery(options.query);
     }
+let buttonHtml = '<div class="col-sm-4" style="visibility:hidden" id="btnSubscribeOnVideo"><div class="buy-courses-items"><div class="cart-btn">' + 
+         '<a href="javascript:void(0);" (click)="openModalEvent()">Buy Now</a> </div> </div></div><div id="backScreen" ></div>';
 
-    return this.sanitize_iframe('<iframe src="https://player.vimeo.com/video/'
-      + id + options.query + '"' + options.attr
-      + ' frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>');
+    return this.sanitize_iframe('<iframe id="player1" src="https://player.vimeo.com/video/'
+      + id + '"' //+ options.query + '"' + options.attr
+      + ' frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>' + buttonHtml);
+  }
+  
+  public embed_vimeo_customized(id: string, options?: any): string {
+    options = this.parseOptions(options);
+    let queryString;
+
+    if (options && options.hasOwnProperty('query')) {
+      queryString = '?' + this.serializeQuery(options.query);
+    }
+let buttonHtml = '<div class="col-sm-4" style="visibility:hidden" id="btnSubscribeOnVideo"><div class="buy-courses-items"><div class="cart-btn">' + 
+         '<a href="javascript:void(0);" (click)="openModalEvent()">Buy Now</a> </div> </div></div><div id="backScreen" ></div>';
+
+    return this.sanitize_iframe('<iframe id="player1" src="https://player.vimeo.com/video/'
+      + id + '"' //+ options.query + '"' + options.attr
+      + ' frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>' + buttonHtml);
   }
 
   public embed_dailymotion(id: string, options?: any): string {
