@@ -79,7 +79,7 @@ let buttonHtml = '<div class="col-sm-4" style="visibility:hidden" id="btnSubscri
 
     return this.sanitize_iframe('<iframe id="player1" src="https://player.vimeo.com/video/'
       + id + '"' //+ options.query + '"' + options.attr
-      + ' frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>' + buttonHtml);
+      + ' frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>');
   }
   
   public embed_vimeo_customized(id: string, options?: any): string {
